@@ -26,7 +26,6 @@ body {
     background: #0F2027;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 nav {
     background-color: var(--sm-theme-800);
@@ -73,4 +72,17 @@ a:hover {
     --bs-btn-border-color: var(--sm-theme-700);
     --bs-btn-hover-bg: var(--sm-theme-800);
     --bs-btn-hover-border-color: var(--sm-theme-600);
+}
+.fizz {
+    background-color: var(--sm-theme-200);
+    color: var(--sm-dark-color);
+
+}
+.buzz {
+    background-color: var(--sm-theme-300);
+
+}
+.fizzbuzz {
+    background-color: var(--sm-theme-600);
+
 }

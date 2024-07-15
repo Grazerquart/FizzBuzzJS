@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>APP NAME Coding Challenge by Morote</title>
+    <title>Fizzbuzz Coding Challenge by Morote</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/index.html"><img class="nav-logo"
-                        src="/img/Morote_white_underline.svg">APPNAME</a>
+                        src="/img/Morote_white_underline.svg">Fizzbuzz</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -66,9 +66,39 @@
     </header>
     <main>
         <div class="container mt-5">
-            <input id="message" placeholder="Enter a message" class="form-control">
-            <button type="button" id="btnSubmit" class="btn btn-primary m-2">Display Message</button>
-        <div class="alert alert-primary mt-5 d-none" role="alert" id="alertMessage"></div>
+            <h1>Fizzbuzz a Coding Challenge</h1>
+            <div>
+                The classic Coding challenge, written in JavaScript.
+            </div>
+            <h2 class="mt-2 border-bottom border-2">Instructions</h2>
+            <p>Fizz buzz is a little coding game with a very simple premise. You count up and whenever you have something divisible by 3 you say <i>Fizz</i> if you are about to count a number divisible by 5 you say <i>Buzz</i>, and if you have a number divisble by both, you say <i>Fizzbuzz!</i>
+            Simple right? That's part of the beauty of it. The logic behind it isn't particularly complex, but to be able to put it into code you have to understand how data is being processed relative to how it needs to be outputted. <br>
+            I went ahead and put together my version of Fizzbuzz. Feel free to play around with it and see what patterns emerge as you play around with it.</p>
+            <div class="row gy-2">
+                <div class="col">
+                    <label class="form-label" for="fizzValue">Fizz Value:</label><input id="fizzValue"
+                        type="number" class="form-control" value="3">
+                </div>
+                <div class="col">
+                    <label class="form-label" for="buzzValue">Buzz Value:</label><input id="buzzValue" type="number"
+                        class="form-control" value="5">
+                </div>
+                <div class="col">
+                    <label class="form-label" for="endValue">End Value:</label><input id="endValue" type="number"
+                        class="form-control" value="100">
+                </div>
+                <div class="col-12 text-end"><button id="btnEntry" type="button"
+                        class="btn btn-primary">FizzBuzz!</button></div>
+            </div>
+            <div id="outputDisplay" class="row gy-2">
+                <div class="col-12">
+                    <h2 class="border-bottom border-2">Results</h2>
+                </div>
+                <div class="col-12">
+                    <div id="outputData" class="row row-cols-2 row-cols-md-5">
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <footer class="py-3">
@@ -94,7 +124,7 @@
     <!-- My JS -->
     <script src="/js/app.js"></script>
     <script>
-        document.getElementById("btnSubmit").addEventListener("click", getValues);
+        document.getElementById("btnEntry").addEventListener("click", getValues);
     </script>
 </body>
 

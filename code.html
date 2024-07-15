@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>APP NAME Coding Challenge by Morote</title>
+    <title>Fizzbuzz Coding Challenge by Morote</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/index.html"><img class="nav-logo"
-                        src="/img/Morote_white_underline.svg">APPNAME</a>
+                        src="/img/Morote_white_underline.svg">Fizzbuzz</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -71,17 +71,97 @@
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-function getValues(){
-    let messageInput = document.getElementById("message").value;
-    let alertMessage = document.getElementById("alertMessage");
-    alertMessage.innerText = messageInput;
+function getValues() {
+    // Pulling in user variables, and then calling further functions to process and display fizzbuzz.
+    let fizzValue = document.getElementById("fizzValue").value;
+    let buzzValue = document.getElementById("buzzValue").value;
+    let endValue = document.getElementById("endValue").value;
+    fizzValue = parseInt(fizzValue);
+    buzzValue = parseInt(buzzValue);
+    endValue = parseInt(endValue);
+    if(Number.isInteger(fizzValue) && Number.isInteger(buzzValue) && Number.isInteger(endValue)){
+        // User input validation
+        let numbers = generateFizzBuzz(fizzValue, buzzValue, endValue);
+        displayFizzBuzz(numbers);
+    } else {
+        alert("You must enter a number.");
+    }
+}
+function generateFizzBuzz(fizz, buzz, end) {
+    // Creating the array of the count
+    let numbers = [];
+    for(i = 0; i <= end; i++){
+        if (i % fizz == 0 && i % buzz == 0) {
+            // If the number is divisible by both fizz and buzz add Fizzbuzz in its place
+            numbers.push("Fizzbuzz");
+        } else if (i % fizz == 0) {
+            // If the number is divisible fizz add fizz in its place
+            numbers.push("Fizz");
+        } else if (i % buzz == 0) {
+            // If the number is divisible buzz add buzz in its place
+            numbers.push("Buzz");
+        } else {
+            // If it's not divisble by either then just add it to the array
+            numbers.push(i);
+        }
+    }
+    // Return the array back to the parent function to be used later
+    return numbers;
+}
+function displayFizzBuzz(numbers) {
+    // Let's build the HTML for the results
+    let templateCols = "";
+    for(let i=0; i < numbers.length; i++) {
+        // Start at index zero and walk up building out each chunk
+        let classname = "";
+        if(numbers[i] == "Fizzbuzz") {
+            // If it's Fizzbuzz then add the fizzbuzz class for stylization with CSS
+            let classname = "fizzbuzz";
+            templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
+        } else if (numbers[i] == "Fizz") {
+            // If it's fizz then add the fizz class for stylization with CSS
+            let classname = "fizz";
+             templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
+        } else if (numbers[i] == "Buzz") {
+            // If it's buzz then add the buzz class for stylization with CSS
+            let classname = "buzz";
+            templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
+        } else {
+            // Otherwise just add it to the list without a specific class
+            templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
+        }
+    }
+    document.getElementById("outputData").innerHTML = templateCols;
+    // Use the outputData id to select the area for the output and redefine the inner HTML to what we built with this function
 }
                         </code>
                     </pre>
                 </div>
                 <div class="col-12 col-lg-4">
                     <h5>getValues</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur atque asperiores doloribus est corrupti dolor rem sint fuga voluptatum, temporibus, expedita aliquam placeat accusamus aperiam! Dolore animi esse cupiditate voluptas?</p>
+                    <p>This acts as the user input validation, and sets up the inputs for use in the rest of the applet.
+                        It starts out pulling in data from HTML inputs and assigning them to variables to be passed as
+                        parameters to other functions.
+                        Once this is done it attempts to convert these strings to intergers. Verifies that it has done
+                        so and then calls the generateFizzBuzz function to get started on actually performing the logic
+                        for Fizzbuzz.
+                        Finally it passes back the array it gets from the generateFizzBuzz function onto the
+                        displayFizzBuzz function to construct the HTML that is then displayed for the user.
+                    </p>
+                    <h5>generateFizzBuzz</h5>
+                    <p>This function initializes an empty array then uses basic logic to check each number from 0 to the
+                        user's designated end number (100 by default).
+                        We start by checking to see if the number <i>i</i> is divisible cleanly by both user defined
+                        divisors (3 and 5 by default), and then proceeds to check divisibility for both individually.
+                        This is done in this order to ensure that a number is not processed before completion. If it can
+                        be cleanly divided into by any or all of these categories then we push the correct word to the
+                        array. However if a number cannot be divided evenly by either we push the number to the array.
+                    </p>
+                    <h5>displayFizzBuzz</h5>
+                    <p>Here we build out the HTML to be displayed on the page. We start at the bottom of the array and
+                        wrap each array element in a div to be displayed on the page. Depending on the contents of the
+                        array we add a class to help further stylize the output of the funtion using CSS. This makes
+                        seeing patterns in Fizzbuzz much easier and more visually appealing for the user. </p>
                 </div>
             </div>
         </div>
