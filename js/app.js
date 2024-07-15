@@ -14,7 +14,7 @@ function getValues() {
 }
 function generateFizzBuzz(fizz, buzz, end) {
     let numbers = [];
-    for(i = 0; i <= end; i++){
+    for(i = 1; i <= end; i++){
         if (i % fizz == 0 && i % buzz == 0) {
             numbers.push("Fizzbuzz");
         } else if (i % fizz == 0) {
