@@ -109,30 +109,12 @@ function generateFizzBuzz(fizz, buzz, end) {
     return numbers;
 }
 function displayFizzBuzz(numbers) {
-    // Let's build the HTML for the results
     let templateCols = "";
     for(let i=0; i < numbers.length; i++) {
-        // Start at index zero and walk up building out each chunk
-        let classname = "";
-        if(numbers[i] == "Fizzbuzz") {
-            // If it's Fizzbuzz then add the fizzbuzz class for stylization with CSS
-            let classname = "fizzbuzz";
-            templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
-        } else if (numbers[i] == "Fizz") {
-            // If it's fizz then add the fizz class for stylization with CSS
-            let classname = "fizz";
-            templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
-        } else if (numbers[i] == "Buzz") {
-            // If it's buzz then add the buzz class for stylization with CSS
-            let classname = "buzz";
-            templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
-        } else {
-            // Otherwise just add it to the list without a specific class
-            templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
-        }
+        // We use a ternary operator to choose between adding a custom class if it is fizz, buzz, or fizzbuzz
+        Number.isInteger(numbers[i]) ? templateCols += `<div class="col">${numbers[i]},</div>` : templateCols += `<div class="col ${numbers[i].toLowerCase()}">${numbers[i]},</div>`
     }
     document.getElementById("outputData").innerHTML = templateCols;
-    // Use the outputData id to select the area for the output and redefine the inner HTML to what we built with this function
 }
                         </code>
                     </pre>
@@ -143,7 +125,7 @@ function displayFizzBuzz(numbers) {
                         It starts out pulling in data from HTML inputs and assigning them to variables to be passed as
                         parameters to other functions.
                         Once this is done it attempts to convert these strings to intergers. Verifies that it has done
-                        so and then calls the generateFizzBuzz function to get started on actually performing the logic
+                        so and then calls the <i>generateFizzBuzz</i> function to get started on actually performing the logic
                         for Fizzbuzz.
                         Finally it passes back the array it gets from the generateFizzBuzz function onto the
                         displayFizzBuzz function to construct the HTML that is then displayed for the user.
