@@ -66,19 +66,7 @@ function displayFizzBuzz(numbers) {
     // Array index starts at zero so final element is length-1
     let templateCols = "";
     for(let i=0; i < numbers.length; i++) {
-        let classname = "";
-        if(numbers[i] == "FizzBuzz") {
-            let classname = "fizzbuzz";
-        templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
-        } else if (numbers[i] == "Fizz") {
-            let classname = "fizz";
-        templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
-        } else if (numbers[i] == "Buzz") {
-            let classname = "buzz";
-        templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
-        } else {
-        templateCols += `<div class="col ${classname}">${numbers[i]},</div>`;
-        }
+        Number.isInteger(numbers[i]) ? templateCols += `<div class="col">${numbers[i]},</div>` : templateCols += `<div class="col ${numbers[i].toLowerCase()}">${numbers[i]},</div>`
     }
     document.getElementById("outputData").innerHTML = templateCols;
 }
