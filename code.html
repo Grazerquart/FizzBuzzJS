@@ -112,7 +112,7 @@ function displayFizzBuzz(numbers) {
     let templateCols = "";
     for(let i=0; i < numbers.length; i++) {
         // We use a ternary operator to choose between adding a custom class if it is fizz, buzz, or fizzbuzz
-        Number.isInteger(numbers[i]) ? templateCols += `<div class="col">${numbers[i]},</div>` : templateCols += `<div class="col ${numbers[i].toLowerCase()}">${numbers[i]},</div>`
+        Number.isInteger(numbers[i]) ? templateCols += `&lt;div class="col"&gt;${numbers[i]},&lt;/div&gt;` : templateCols += `&lt;div class="col ${numbers[i].toLowerCase()}"&gt;${numbers[i]},&lt;/div&gt;`
     }
     document.getElementById("outputData").innerHTML = templateCols;
 }
